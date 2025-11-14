@@ -2,7 +2,10 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-require("dotenv").config();
+const dotenv = require("dotenv");
+
+// Disable dotenv tips/logs
+dotenv.config({ debug: false });
 
 const authRoutes = require("./routes/auth");
 const clubRoutes = require("./routes/club");

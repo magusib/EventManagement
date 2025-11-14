@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../axiosConfig";
+import Header from "../components/Header";
 
 export default function AnnouncementsPage({ admin=false }) {
   const [ann, setAnn] = useState([]);
@@ -23,6 +24,7 @@ export default function AnnouncementsPage({ admin=false }) {
 
   return (
     <div>
+      <Header />
       <h3>Announcements</h3>
       {admin && (
         <div className="card p-2 mb-3">

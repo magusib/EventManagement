@@ -1,64 +1,219 @@
-/* Register.css - Unified with Login design (green theme) */
-
-/* Reset basics */
-* { box-sizing: border-box; }
-html, body { height: 100%; width: 100%; margin: 0; }
-
-.register-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1b5e20, #81c784); /* green gradient */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* General resets and base styles */
+body {
+  margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px 16px;
+  background: linear-gradient(0deg, #0a8e01 0%, #333701 100%);
+  color: #333;
 }
 
-/* Container mirrors login */
-.register-container {
-  background: white;
-  border-radius: 20px;
-  width: 420px;
-  max-width: 96%;
-  padding: 36px 34px;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+/* Login page container */
+.login-page {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.header-section {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.header-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(21, 95, 21, 0.479); /* Dark green overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the logo and title horizontally */
+  gap: 15px;
+}
+
+.header-logo {
+  height: 100px;
+  width: auto;
 }
 
 .header-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #1b5e20;
+  margin: 0;
   text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 50px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #e2dada;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: italic;
+  font-variant: small-caps;
+  text-transform: capitalize;
+  text-shadow: 0 0 10px #FFFFFF;
 }
 
-.form-section { display: flex; flex-direction: column; gap: 14px; }
+/* Login container */
+.login-container {
+  max-width: 420px; 
+  width: 100%;
+  margin: 30px auto 50px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 30px 25px 40px;
+}
+
+/* Tabs navigation */
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #555;
+  border-bottom: 3px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.tab-button:hover {
+  color: #228b22; /* Dark green */
+}
+
+.tab-button.active {
+  color: #228b22; /* Dark green */
+  border-bottom-color: #228b22; /* Dark green */
+  font-weight: 600;
+}
+
+/* Form section */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input group */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Adjusted for better alignment */
+}
 
 .input-group label {
-  display:block; margin-bottom:6px; font-weight:600; color:#1b5e20;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #222;
 }
 
-.input-box { position: relative; }
-.input-box .icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#43a047; }
-
-.input-box input, .input-box select, .input-box textarea {
-  width:100%; padding:12px 14px 12px 42px; border-radius:12px; border:1px solid #c8e6c9; font-size:14px;
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1.8px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 10px 10px 40px;
+  background: #fafafa;
+  transition: border-color 0.3s;
 }
-.input-box input:focus, .input-box select:focus, .input-box textarea:focus { outline:none; border-color:#43a047; box-shadow:0 0 10px rgba(67,160,71,0.2); }
 
-.primary-button {
-  width:100%; padding:12px 0; border-radius:14px; border:none; cursor:pointer; color:white; font-weight:700;
-  background: linear-gradient(90deg,#43a047,#66bb6a); box-shadow:0 6px 18px rgba(0,0,0,0.18);
+.input-box:focus-within {
+  border-color: #228b22; /* Dark green */
+  background: #fff;
 }
-.primary-button:hover { background: linear-gradient(90deg,#2e7d32,#4caf50); }
 
-.secondary-button { width:100%; padding:10px; border-radius:12px; border:2px solid #43a047; background:transparent; color:#1b5e20; font-weight:600; }
+.icon {
+  position: absolute;
+  left: 12px;
+  font-size: 1.2rem;
+  color: #000000;
+  pointer-events: none;
+}
 
-.note-text { text-align:center; color:#1b5e20; font-size:14px; }
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  color: #333;
+  padding: 0; /* Removed extra padding to fix alignment */
+}
 
-@media (max-width:480px) {
-  .register-container { padding:20px; }
-  .header-title { font-size:18px; }
+/* Login button */
+.login-button {
+  background-color: #228b22; /* Dark green */
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #006400; /* Darker green */
+}
+
+.login-button i {
+  font-size: 1.2rem;
+}
+
+/* Register text and button */
+.register-text {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #666;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.register-button {
+  background: transparent;
+  border: 2px solid #228b22; /* Dark green */
+  color: #228b22; /* Dark green */
+  font-weight: 600;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #228b22; /* Dark green */
+  color: #fff;
+}
+
+.register-button i {
+  font-size: 1.1rem;
 }

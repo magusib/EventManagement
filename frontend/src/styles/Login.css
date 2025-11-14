@@ -1,25 +1,68 @@
-/* Login.css */
-
-/* Page Background */
-.login-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1b5e20, #81c784); /* Green gradient */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+/* General resets and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding-top: 50px;
 }
 
-/* Header Section */
+.dashboard-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #228b22; /* Dark green */
+  padding: 10px 20px;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.left-controls,
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icon-btn:hover {
+  color: #e2dada;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* User info */
+.user-name {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Header Section (banner + logo) */
 .header-section {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  height: 160px;
-  margin-bottom: 40px;
-  border-radius: 12px;
+  height: 180px;
   overflow: hidden;
 }
 
@@ -27,150 +70,129 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.7);
+  display: block;
 }
 
 .header-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
+  background: rgba(21, 95, 21, 0.479); /* Dark green overlay */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
-  text-align: center;
-  padding: 0 10px;
+  gap: 15px;
 }
 
 .header-logo {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 10px;
+  height: 100px;
+  width: auto;
 }
 
 .header-title {
-  font-size: 22px;
-  font-weight: bold;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-}
-
-/* Login Container */
-.login-container {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-  padding: 50px 40px;
-  width: 400px;
-  max-width: 95%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-/* Tab Navigation */
-.tab-navigation {
-  display: flex;
-  width: 100%;
-  margin-bottom: 30px;
-  gap: 12px;
-}
-
-.tab-button {
-  flex: 1;
-  padding: 12px 0;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 15px;
-  border-radius: 15px;
-  transition: all 0.3s ease;
-  background-color: #e8f5e9;
-  color: #1b5e20;
-}
-
-.tab-button.active {
-  background: linear-gradient(90deg, #43a047, #66bb6a);
-  color: white;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-}
-
-/* Form Section */
-.form-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.input-group {
-  margin-bottom: 25px;
-  width: 100%;
-}
-
-.input-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #1b5e20;
-  font-size: 15px;
-}
-
-.input-box {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 14px 14px 14px 42px;
-  border-radius: 15px;
-  border: 1px solid #c8e6c9;
-  outline: none;
-  font-size: 15px;
-  transition: all 0.3s ease;
-}
-
-.input-box input:focus {
-  border-color: #43a047;
-  box-shadow: 0 0 10px rgba(67,160,71,0.4);
-}
-
-.icon {
-  position: absolute;
-  left: 12px;
-  color: #43a047;
-  font-size: 18px;
-}
-
-/* Buttons */
-.login-button, .register-button {
-  width: 100%;
-  font-weight: bold;
-  padding: 14px 0;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 15px;
-  margin-top: 12px;
-  color: white;
-  background: linear-gradient(90deg, #43a047, #66bb6a);
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-}
-
-.login-button:hover, .register-button:hover {
-  background: linear-gradient(90deg, #2e7d32, #4caf50);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
-}
-
-/* Register Text */
-.register-text {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 40px;
+  font-weight: 700;
+  color: #e2dada;
+  font-style: italic;
+  font-variant: small-caps;
+  text-transform: capitalize;
+  text-shadow: 0 0 10px #ffffff;
   text-align: center;
-  margin-top: 18px;
-  color: #1b5e20;
-  font-size: 14px;
+}
+
+/* Dashboard body */
+.dashboard-body {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 60px); /* Adjust for topbar height */
+  background-color: #f4f6f8;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-sidebar.hidden {
+  transform: translateX(-260px);
+}
+
+.sidebar-header {
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  background-color: #228b22;
+  color: #fff;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.sidebar-menu button {
+  background: transparent;
+  border: none;
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-menu button.active,
+.sidebar-menu button:hover {
+  background-color: #228b22;
+  color: #fff;
+  font-weight: 600;
+}
+
+.logout-btn {
+  margin-top: auto;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 25px;
+  overflow-y: auto;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .dashboard-body {
+    flex-direction: column;
+  }
+
+  .dashboard-sidebar {
+    width: 100%;
+    transform: translateY(-100%);
+    position: absolute;
+    z-index: 1000;
+  }
+
+  .dashboard-sidebar.hidden {
+    transform: translateY(-100%);
+  }
 }

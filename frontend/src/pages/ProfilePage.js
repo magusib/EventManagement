@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../axiosConfig";
+import Header from "../components/Header";
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState(null);
@@ -71,6 +72,7 @@ export default function ProfilePage() {
 
   return (
     <div className="profile-page">
+      <Header />
       <h3>Profile</h3>
 
       <div className="profile-avatar">

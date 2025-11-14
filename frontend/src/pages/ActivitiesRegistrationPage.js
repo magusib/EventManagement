@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../axiosConfig";
+import Header from "../components/Header";
 import "../styles/ActivitiesRegistration.css";
 
 export default function ActivitiesRegistrationPage({ admin = false }) {
@@ -139,6 +140,7 @@ export default function ActivitiesRegistrationPage({ admin = false }) {
   if (admin) {
     return (
       <div className="admin-registration-container">
+        <Header />
         <h2>Activities Registration Management</h2>
         
         {/* Search Bar */}
@@ -226,6 +228,7 @@ export default function ActivitiesRegistrationPage({ admin = false }) {
   // Student Registration Form
   return (
     <div className="activities-registration-container">
+      <Header />
       <h2>Activities Registration</h2>
       <p className="subtitle">Register for school activities as an individual or team</p>
 

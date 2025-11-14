@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../axiosConfig";
+import Header from "../components/Header";
 
 export default function EventsPage({ admin=false }) {
   const [events, setEvents] = useState([]);
@@ -34,6 +35,7 @@ export default function EventsPage({ admin=false }) {
 
   return (
     <div>
+      <Header />
       <h3>Events</h3>
       {admin && (
         <div className="card p-2 mb-3">

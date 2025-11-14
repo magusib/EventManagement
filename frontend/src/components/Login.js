@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../axiosConfig";
+import Header from "./Header";
 import "../styles/Login.css";
 
 function Login() {
@@ -9,39 +10,32 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    if (!email.endsWith("@paterostechnologicalcollege.edu.ph")) {
-      alert("Please use your institutional email to log in.");
-      return;
-    }
+  if (!email.endsWith("@paterostechnologicalcollege.edu.ph")) {
+    alert("Please use your institutional email to log in.");
+    return;
+  }
 
-    try {
-      const res = await axios.post("/login", {
-        email,
-        password,
-      });
+  try {
+    const res = await axios.post("/login", { email, password });
 
-      alert(res.data.message || "Login successful!");
-      // store both token and user
-      if (res.data.token) localStorage.setItem("token", res.data.token);
-      if (res.data.user) localStorage.setItem("user", JSON.stringify(res.data.user));
-      navigate("/dashboard");
-    } catch (err) {
-      alert(
-        err.response?.data?.error ||
-          "Login failed. Please check your credentials."
-      );
-    }
-  };
+    // store token and user silently (no alert)
+    if (res.data.token) localStorage.setItem("token", res.data.token);
+    if (res.data.user) localStorage.setItem("user", JSON.stringify(res.data.user));
+
+    // redirect to dashboard without alert
+    navigate("/dashboard");
+  } catch (err) {
+    // keep the error alert for failed login
+    alert(
+      err.response?.data?.error ||
+      "Login failed. Please check your credentials."
+    );
+  }
+};
 
   return (
     <div className="login-page">
-      <header className="header-section">
-        <img src="/uploads/ptc.jpg" alt="PTC Banner" className="header-banner" />
-        <div className="header-overlay">
-          <img src="/uploads/logo.png" alt="PTC Logo" className="header-logo" />
-          <h1 className="header-title">Pateros Technological College</h1>
-        </div>
-      </header>
+      <Header />
 
       <div className="login-container">
         <div className="tab-navigation">

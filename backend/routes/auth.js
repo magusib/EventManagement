@@ -4,6 +4,7 @@ const router = express.Router();
 const pool = require("../db");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+// email verification removed: no crypto/nodemailer required
 require("dotenv").config();
 
 // Register (students only)
@@ -26,12 +27,13 @@ router.post("/register", async (req, res) => {
       [fullname, email, phone, hashed, "student"]
     );
 
-    res.json({ message: "Registration successful", userId: result.insertId });
+    res.json({ message: "Registration successful. You can now log in.", userId: result.insertId });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });
   }
 });
+
 
 // Login (student & admin)
 router.post("/login", async (req, res) => {

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../axiosConfig";
-import "../styles/Login.css";
+import Header from "./Header";
+import "../styles/Register.css";
 
 function Register() {
   const [fullname, setFullname] = useState("");
@@ -9,7 +10,11 @@ function Register() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  
+  // verification removed: registration now completes and user can log in
+  
+  
+  
   const handleRegister = async () => {
     if (!email.endsWith("@paterostechnologicalcollege.edu.ph")) {
       alert(
@@ -36,22 +41,17 @@ function Register() {
         password,
       });
 
-      alert(res.data.message || "Registration successful! You may now log in.");
-      navigate("/login");
+      alert(res.data.message || "Registration successful! You can now log in.");
+      navigate('/login');
     } catch (err) {
       alert(err.response?.data?.error || "Registration failed. Try again.");
     }
   };
 
+
   return (
     <div className="login-page">
-      <header className="header-section">
-        <img src="/uploads/ptc.jpg" alt="PTC Banner" className="header-banner" />
-        <div className="header-overlay">
-          <img src="/uploads/logo.png" alt="PTC Logo" className="header-logo" />
-          <h1 className="header-title">Pateros Technological College</h1>
-        </div>
-      </header>
+      <Header />
 
       <div className="login-container">
         <div className="tab-navigation">
@@ -123,7 +123,7 @@ function Register() {
           </button>
 
           <p className="register-text">Already have an account?</p>
-          <button className="register-button" onClick={() => navigate("/login")}>
+          <button className="register-button" onClick={() => navigate("/login") }>
             <i className="fa fa-sign-in"></i> Login Here
           </button>
         </div>
