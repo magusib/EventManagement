@@ -74,9 +74,11 @@ export default function ClubModal({ open, onClose, onSaved, initialData = null }
   return (
     <div className="modal-overlay">
       <div className="modal-card">
-        <h3 style={{marginTop:0}}>{initialData ? "Edit Club" : "Add Club"}</h3>
+        <button className="modal-close-btn" onClick={onClose} type="button">
+          <i className="fa fa-times"></i>
+        </button>
+        <h3 style={{marginTop:0, marginBottom:16, textAlign:'left'}}>{initialData ? "Edit Club" : "Add Club"}</h3>
         <form onSubmit={handleSubmit} className="modal-form">
-          {/* preview existing picture when editing */}
           {initialData?.picture && !pictureFile && (
             <div style={{marginBottom:8}}>
               <img
@@ -86,11 +88,12 @@ export default function ClubModal({ open, onClose, onSaved, initialData = null }
               />
             </div>
           )}
-          <label>Name</label>
+          <label>Club Name</label>
           <input value={name} onChange={(e)=>setName(e.target.value)} required />
 
           <label>Description</label>
           <textarea value={description} onChange={(e)=>setDescription(e.target.value)} rows={3} />
+
 
           <label>Achievements</label>
           <textarea value={achievements} onChange={(e)=>setAchievements(e.target.value)} rows={2} />
@@ -101,7 +104,7 @@ export default function ClubModal({ open, onClose, onSaved, initialData = null }
           <label>Current Members</label>
           <input value={members} onChange={(e)=>setMembers(e.target.value)} type="number" />
 
-          <label>Training Schedule</label>
+          <label>Schedule</label>
           <input value={schedule} onChange={(e)=>setSchedule(e.target.value)} />
 
           <label>Picture</label>

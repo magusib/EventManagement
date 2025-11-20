@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Dashboard.css";
 
-function DashboardSidebar({ user, role, active, onChange, onLogout }) {
+function DashboardSidebar({ user, role, active, onChange, onLogout, onClose }) {
   const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
   
   const menu = [
@@ -30,6 +30,9 @@ function DashboardSidebar({ user, role, active, onChange, onLogout }) {
 
   return (
     <aside className="sidebar">
+      <button className="sidebar-close-btn" onClick={onClose} style={{position: 'absolute', top: 12, right: 12, background: 'none', border: 'none', color: 'white', fontSize: 22, cursor: 'pointer', zIndex: 30}}>
+        <i className="fa fa-times"></i>
+      </button>
       <div className="sidebar-header">
         <div className="avatar">
           {getAvatarUrl() ? (

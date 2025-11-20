@@ -4,15 +4,15 @@ import Header from "./Header";
 import StudentHome from "../pages/StudentHome";
 import AdminHome from "../pages/AdminHome";
 import ClubsPage from "../pages/ClubsPage";
-import ClubRegistrationPage from "../pages/ClubsRegistrationPage";
-import ActivitiesRegistrationPage from "../pages/ActivitiesRegistrationPage";
+import RegistrationModule from "../pages/RegistrationModule";
 import EventsPage from "../pages/EventsPage";
 import AnnouncementsPage from "../pages/AnnouncementsPage";
 import ProfilePage from "../pages/ProfilePage";
 import "../styles/Dashboard.css";
 
+
 export default function DashboardLayout() {
-  const user = JSON.parse(localStorage.getItem("user") || "null");
+  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user") || "null"));
   const [active, setActive] = useState("home");
   const [sidebarVisible, setSidebarVisible] = useState(true);
 
@@ -26,31 +26,32 @@ export default function DashboardLayout() {
     window.location.href = "/login";
   };
 
+  // Callback to update user after profile change
+  const handleProfileUpdate = () => {
+    const updatedUser = JSON.parse(localStorage.getItem("user") || "null");
+    setUser(updatedUser);
+  };
+
   const renderMain = () => {
     if (!user) return <div>Please login</div>;
     if (user.role === "admin") {
       switch (active) {
         case "home": return <AdminHome />;
         case "club": return <ClubsPage admin />;
-        case "registration": return <ActivitiesRegistrationPage admin />;
+        case "registration": return <RegistrationModule admin={true} />;
         case "event": return <EventsPage admin />;
         case "announcement": return <AnnouncementsPage admin />;
-        case "profile": return <ProfilePage />;
+        case "profile": return <ProfilePage onProfileUpdate={handleProfileUpdate} />;
         default: return <AdminHome />;
       }
     } else {
       switch (active) {
         case "home": return <StudentHome />;
         case "club": return <ClubsPage />;
-        case "registration": return (
-          <div>
-            <ClubRegistrationPage />
-            <ActivitiesRegistrationPage />
-          </div>
-        );
+        case "registration": return <RegistrationModule admin={false} />;
         case "event": return <EventsPage />;
         case "announcement": return <AnnouncementsPage />;
-        case "profile": return <ProfilePage />;
+        case "profile": return <ProfilePage onProfileUpdate={handleProfileUpdate} />;
         default: return <StudentHome />;
       }
     }
@@ -61,9 +62,18 @@ export default function DashboardLayout() {
       <Header onMenuClick={() => setSidebarVisible(v => !v)} />
 
       <div className="dashboard-body">
-        {sidebarVisible && <DashboardSidebar user={user} role={user?.role} active={active} onChange={setActive} onLogout={handleLogout} />}
+        {sidebarVisible && (
+          <DashboardSidebar
+            user={user}
+            role={user?.role}
+            active={active}
+            onChange={setActive}
+            onLogout={handleLogout}
+            onClose={() => setSidebarVisible(false)}
+          />
+        )}
 
-        <main className="main-content">
+        <main className={`main-content${sidebarVisible ? ' sidebar-open' : ''}`}>
           {renderMain()}
         </main>
       </div>

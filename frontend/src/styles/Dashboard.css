@@ -1,3 +1,251 @@
+/* Registration Cards Layout (Student Dashboard) */
+.registration-cards-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0;
+}
+.registration-cards-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.registration-card {
+  background: #aaa;
+  border-radius: 18px;
+  padding: 24px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.registration-card-wide {
+  grid-column: 1 / span 2;
+  min-height: 180px;
+}
+/* Registration Split-Screen Layout */
+.registration-split-screen {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.registration-left, .registration-right {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 28px 24px;
+  min-width: 320px;
+}
+.activities-form label {
+  font-weight: 500;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  display: block;
+}
+.activities-form input, .activities-form select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+  font-size: 15px;
+  background: #f8fafc;
+}
+.activities-form button {
+  margin-top: 12px;
+}
+.registration-bottom {
+  margin-top: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px;
+}
+.recent-registrations {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.recent-reg-card {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 14px 18px;
+  min-width: 180px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+/* Admin Registration Management */
+.registration-admin-view {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 28px 24px;
+}
+.registration-admin-top {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.registration-admin-top input, .registration-admin-top select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+  background: #f8fafc;
+}
+.registration-admin-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.registration-admin-table th, .registration-admin-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+.registration-admin-table th {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+.registration-admin-table tr:last-child td {
+  border-bottom: none;
+}
+/* Club grid and card redesign */
+.club-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 0 16px;
+}
+
+.club-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.club-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.club-image-wrap {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f0f4f8;
+}
+
+.club-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.club-card:hover .club-image {
+  transform: scale(1.05);
+}
+
+.club-image-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Modal Overlay and Card for ClubModal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 32px 28px 24px 28px;
+  min-width: 340px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-form label {
+  font-weight: 500;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  display: block;
+}
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+  font-size: 15px;
+  background: #f8fafc;
+  resize: none;
+}
+.modal-form textarea {
+  min-height: 48px;
+}
+/* Sidebar close button */
+.sidebar-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 30;
+}
 /* ====== Root Layout ====== */
 .dashboard-root {
   height: 100vh;
@@ -53,6 +301,13 @@
   flex-direction: column;
   transition: all 0.3s ease;
   overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* cover whole left side */
+  z-index: 20; /* higher than header */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-bottom-right-radius: 12px;
 }
 
 /* Sidebar header - avatar above name and role */
@@ -152,6 +407,11 @@
   background: #f8fafc;
   padding: 20px;
   overflow-y: auto;
+  transition: margin-left 0.3s;
+}
+
+.main-content.sidebar-open {
+  margin-left: 240px; /* same as sidebar width */
 }
 
 /* ====== Cards Section ====== */

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../axiosConfig";
 
-export default function ProfilePage() {
+export default function ProfilePage({ onProfileUpdate }) {
   const [profile, setProfile] = useState(null);
   const [avatarFile, setAvatarFile] = useState(null);
   const [form, setForm] = useState({ fullname: "", email: "", phone: "" });
@@ -61,6 +61,8 @@ export default function ProfilePage() {
         fullname: res.data.fullname,
         avatar: res.data.avatar
       }));
+      // Notify parent to update user state
+      if (onProfileUpdate) onProfileUpdate();
     } catch (err) {
       console.error(err);
       alert("Error updating profile");

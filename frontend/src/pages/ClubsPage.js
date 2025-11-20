@@ -101,35 +101,32 @@ export default function ClubsPage({ admin = false }) {
         <div className="club-grid">
           {clubs.map((c) => (
             <div className="club-card" key={c.id}>
-              {c.picture && (
-                <img
-                  src={(function(){
-                    if (/^https?:\/\//i.test(c.picture)) return c.picture;
-                    if (c.picture.startsWith("/")) return `${apiRoot}${c.picture}`;
-                    // bare filename
-                    return `${apiRoot}/uploads/${c.picture}`;
-                  })()}
-                  alt={c.name}
-                  className="club-image"
-                />
-              )}
+              <div className="club-image-wrap">
+                {c.picture ? (
+                  <img
+                    src={(function(){
+                      if (/^https?:\/\//i.test(c.picture)) return c.picture;
+                      if (c.picture.startsWith("/")) return `${apiRoot}${c.picture}`;
+                      return `${apiRoot}/uploads/${c.picture}`;
+                    })()}
+                    alt={c.name}
+                    className="club-image"
+                  />
+                ) : (
+                  <div className="club-image-placeholder">No Image</div>
+                )}
+              </div>
               <div className="club-card-body">
                 <h4 className="club-name">{c.name}</h4>
                 {c.description && <p className="club-desc">{c.description}</p>}
                 {c.achievements && <p className="club-achievements"><strong>Achievements:</strong> {c.achievements}</p>}
-
                 <div className="club-meta">
                   <p><strong>Coach:</strong> {c.coach || "-"}</p>
                   <p><strong>Members:</strong> {c.current_members ?? "-"}</p>
                   <p><strong>Schedule:</strong> {c.training_schedule || "-"}</p>
                 </div>
-
                 <div className="club-actions">
-                  {!admin && (
-                    <button className="btn btn-register" onClick={() => handleRegister(c.id)}>
-                      Register
-                    </button>
-                  )}
+                  {/* Registration button removed; use Registration page for club registration */}
                   {admin && (
                     <div className="admin-actions">
                       <button className="btn btn-sm btn-warning" onClick={() => { setEditingClub(c); setModalOpen(true); }}>
