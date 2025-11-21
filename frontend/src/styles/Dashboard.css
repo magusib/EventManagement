@@ -309,6 +309,7 @@
   background: #f8fafc;
   color: #1e293b;
   font-family: "Poppins", sans-serif;
+  overflow: hidden; /* Prevent root from scrolling */
 }
 
 /* ====== Topbar ====== */
@@ -344,6 +345,7 @@
   display: flex;
   flex: 1;
   overflow: hidden;
+  min-height: 0; /* Allow flex child to shrink */
 }
 
 /* ====== Sidebar ====== */
@@ -640,7 +642,7 @@
 
 .registration-card {
   background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #959697;
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;

@@ -20,7 +20,7 @@ function Login() {
         password,
       });
 
-      alert(res.data.message || "Login successful!");
+     
       // store both token and user
       if (res.data.token) localStorage.setItem("token", res.data.token);
       if (res.data.user) localStorage.setItem("user", JSON.stringify(res.data.user));

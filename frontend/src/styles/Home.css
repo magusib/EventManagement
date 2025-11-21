@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.mv-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100vh;
+  width: 100vw;
+  padding: 100px 20px 40px; /* increased top padding to push down content */
+  box-sizing: border-box;
+  color: #f7eb05;
+  text-align: center;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mv-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(223, 237, 32, 0.15) 0%, transparent 70%);
+  animation: pulse 8s ease-in-out infinite;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.1;
+  }
+}
+.mv-title {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: 0.15em;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  color: #1a1b1a;           /* Green text */
+ 
+  display: inline-block;    /* Shrink to fit text */
+  padding: 0 10px;          /* Optional: some spacing around */
+  border-radius: 5px;       /* Optional: rounded background */
+}
+
+.mv-section {
+  position: relative;
+ background: linear-gradient(
+  135deg,
+  rgba(87, 180, 76, 0.8),    /* transparent green */
+  rgba(182, 178, 71, 0.8)
+ );
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.15);
+  padding: 40px 30px;
+  width: 400px;
+  height: 100%; /* make height stretch inside the flex container */
+  min-height: 400px; /* ensure a minimum height to equalize both */
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  transition: background 0.3s ease;
+  z-index: 1;
+}
+
+
+.mv-section:hover {
+  background: rgba(114, 32, 32, 0.25);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.mv-heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #e6f4ea;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.904);
+  text-align: left; /* Add this */
+}
+
+.mv-text {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #070707;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-align: left; /* Add this */
+}
+
+
+
+/* Responsive: stack vertically on smaller screens */
+@media (max-width: 900px) {
+  .mv-container {
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 100px;
+  }
+  .mv-section {
+    width: 90vw;
+    padding: 30px 20px;
+  }
+  .mv-title {
+    font-size: 2.4rem;
+    top: 20px;
+  }
+}

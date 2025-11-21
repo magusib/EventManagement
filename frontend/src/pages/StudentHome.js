@@ -1,11 +1,28 @@
 import React from "react";
+import "../styles/Home.css";
 
 export default function StudentHome() {
   return (
-    <div>
-      <h2>Mission & Vision</h2>
-      <p><strong>Vision:</strong> To be a center of excellence in technical and vocational education.</p>
-      <p><strong>Mission:</strong> To provide quality education and opportunities for student development through sports and extracurricular activities.</p>
+    <div className="mv-container">
+      <h1 className="mv-title">Welcome Ptcians</h1>
+
+      <section className="mv-section">
+        <h2 className="mv-heading">Vision</h2>
+        <p className="mv-text">
+          Pateros Technological College envisions itself as a premier institution committed to excellence in
+          technological education, producing globally competitive and socially responsible graduates.
+        </p>
+      </section>
+
+      <section className="mv-section">
+        <h2 className="mv-heading">Mission</h2>
+        <p className="mv-text">
+          The mission of Pateros Technological College is to provide quality technological and professional
+          education that fosters innovative thinking, skills development, and lifelong learning, empowering
+          students to contribute meaningfully to society and the global community.
+        </p>
+      </section>
     </div>
   );
-}
+};
+
