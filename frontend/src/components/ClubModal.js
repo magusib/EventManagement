@@ -93,7 +93,7 @@ export default function ClubModal({ open, onClose, onSaved, initialData = null }
               <img
                 src={initialData.picture.startsWith('/') ? `${apiRoot}${initialData.picture}` : initialData.picture}
                 alt="preview"
-                style={{width:120, height:80, objectFit:'cover', borderRadius:6}}
+                style={{width:120, height:100, objectFit:'cover', borderRadius:6}}
               />
             </div>
           )}

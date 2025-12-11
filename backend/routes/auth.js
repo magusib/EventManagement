@@ -4,6 +4,8 @@ const router = express.Router();
 const pool = require("../db");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
+const sendEmail = require("../utils/email");
 // email verification removed: no crypto/nodemailer required
 require("dotenv").config();
 
@@ -67,5 +69,8 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+
+
 
 module.exports = router;

@@ -38,12 +38,22 @@ function StudentRegistrationDashboard() {
     "Chess Tournament",
     "Table Tennis",
     "Badminton",
-    "Athletics"
+    "Athletics",
+    "Mr LCUAA",
+    "Ms LCUAA",
+    "Basketball Game",
+    "Mens Volleyball Game",
+    "Women Volleyball Game"
+
   ];
   const teamActivities = [
     "Esport Tournament",
     "Basketball Game",
-    "Volleyball Game"
+    "Volleyball Game",
+    "Badminton Double",
+    "Table Tennis Double",
+    "CheerDance"
+
   ];
 
   useEffect(() => {

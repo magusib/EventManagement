@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import axios from "../axiosConfig";
 import "../styles/Login.css";
@@ -46,9 +47,7 @@ function Login() {
       <div className="login-container">
         <div className="tab-navigation">
           <button className="tab-button active">LOGIN</button>
-          <button className="tab-button" onClick={() => navigate("/register")}>
-            REGISTER
-          </button>
+          <button className="tab-button" onClick={() => navigate("/register")}>REGISTER</button>
         </div>
 
         <div className="form-section">
@@ -83,6 +82,7 @@ function Login() {
           <button type="button" className="login-button" onClick={handleLogin}>
             <i className="fa fa-sign-in"></i> LOGIN
           </button>
+
 
           <p className="register-text">Don’t have an account yet?</p>
           <button

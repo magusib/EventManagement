@@ -171,6 +171,23 @@ input[type="password"] {
   background-color: #006400;
 }
 
+.submit-button {
+  background-color: #228b22;
+  color: #fff;
+  border: none;
+  padding: 6px 10px; /* smaller */
+  font-size: 0.9rem; /* smaller */
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
+  gap: 4px; /* smaller space */
+  transition: 0.3s;
+}
+
 /* Register text */
 .register-text {
   text-align: center;
